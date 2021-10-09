@@ -1,7 +1,7 @@
 -- phpMyAdmin SQL Dump
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
---
+-- 
 -- Host: 127.0.0.1:3306
 -- Generation Time: Oct 09, 2021 at 02:10 PM
 -- Server version: 5.7.31
