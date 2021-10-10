@@ -21,16 +21,16 @@ class ProductsController extends AppController
         $products = $this->Paginator->paginate($articlesTable->find());
         $search = strtolower($this->request->getData('search'));
 
-        if ($this->request->is('post') && $search != '') { //executes when submit button is pressed
-            $newProducts = array();
-            foreach ($products as $product){
-                if(str_contains(strtolower($product->title), $search) || str_contains(strtolower($product->description), $search)){
-                    array_push($newProducts, $product);
+        if ($this->request->is('post') && $search != '') { //executes when search button is pressed
+            $newProducts = array(); //make new product list to store sorted list
+            foreach ($products as $product){ //go trough the  full list of products
+                if(str_contains(strtolower($product->title), $search) || str_contains(strtolower($product->description), $search)){ //filter trough poducts
+                    array_push($newProducts, $product); //if product matches the search add it to the new list
                 }
             }
-            $this->set('products', $newProducts);
+            $this->set('products', $newProducts); //send the new list
         } else{
-            $this->set('products', $products);
+            $this->set('products', $products); // if not searched send the full list
         }
 
     }
